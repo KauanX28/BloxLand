@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "slug": "wave-executor",
+    "name": "Wave Executor",
+    "tagline": "Premium undetected Roblox PC/Windows executor with multiple license options. Choose from 1 day to 1 year access.",
+    "description": "Wave is a premium, secure Roblox executor that works seamlessly on Windows PC. Featuring an advanced execution engine, bypasses, and an intuitive UI, it allows you to run even the most complex scripts with ease.",
+    "image": "https://bloxkeys.com/images/wave-box.webp",
+    "features": [
+      "100% Undetected & Safe",
+      "Custom Script Hub included",
+      "Instant Key Delivery via Email",
+      "Windows 10/11 Compatible",
+      "24/7 Discord Support"
+    ],
+    "rating": 4.9,
+    "reviews_count": 8247,
+    "variants": [
+      {
+        "id": "wave-1d",
+        "name": "Wave 1 Day License",
+        "duration": "1 Day",
+        "price": 2.47,
+        "features": ["Full Wave Access", "Premium Scripts"]
+      },
+      {
+        "id": "wave-7d",
+        "name": "Wave 7 Day License",
+        "duration": "7 Days",
+        "price": 6.97,
+        "badge": "POPULAR",
+        "features": ["Full Wave Access", "Premium Scripts"]
+      },
+      {
+        "id": "wave-30d",
+        "name": "Wave 30 Day License",
+        "duration": "30 Days",
+        "price": 18.97,
+        "badge": "MONTHLY",
+        "features": ["Full Wave Access", "Premium Scripts"]
+      },
+      {
+        "id": "wave-90d",
+        "name": "Wave 90 Day License",
+        "duration": "90 Days",
+        "price": 39.97,
+        "badge": "QUARTERLY",
+        "features": ["Full Wave Access", "Premium Scripts"]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "slug": "wave-mystery-box",
+    "name": "Wave Mystery Box",
+    "tagline": "Get surprised with our Wave Mystery Box containing random Wave executor licenses, exclusive bonuses, and special perks.",
+    "description": "Test your luck with the Wave Mystery Box! Each box guarantees a Wave license (ranging from 1 Day to Lifetime) and potentially other exclusive BloxKeys rewards.",
+    "image": "https://bloxkeys.com/images/wave-mystery-box.webp",
+    "badge": "HOT",
+    "features": [
+      "Guaranteed Wave License",
+      "Chance for Lifetime Access",
+      "Instant Delivery",
+      "Exclusive Perks"
+    ],
+    "rating": 5.0,
+    "reviews_count": 4726,
+    "variants": [
+      {
+        "id": "mystery-standard",
+        "name": "Standard Box",
+        "duration": "Random",
+        "price": 2.97,
+        "features": ["1x Guaranteed License", "Low chance for Lifetime"]
+      },
+      {
+        "id": "mystery-premium",
+        "name": "Premium Box",
+        "duration": "Random",
+        "price": 9.97,
+        "badge": "BEST VALUE",
+        "features": ["1x Guaranteed License (Min 7 Days)", "High chance for Lifetime", "Priority Support"]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "slug": "seliware-executor",
+    "name": "Seliware Executor",
+    "tagline": "Lightweight, powerful, and affordable executor designed for smooth performance.",
+    "description": "Seliware focuses on speed and efficiency. It's the perfect choice for users who want a reliable executor that doesn't consume excessive system resources.",
+    "image": "https://bloxkeys.com/images/seliware-logo.webp",
+    "badge": "BACK UP",
+    "features": [
+      "Lightweight Engine",
+      "Fast Injection",
+      "Affordable Pricing",
+      "Stable Execution"
+    ],
+    "rating": 4.8,
+    "reviews_count": 3102,
+    "variants": [
+      {
+        "id": "seliware-7d",
+        "name": "Seliware 7 Day",
+        "duration": "7 Days",
+        "price": 4.97,
+        "features": ["Full Seliware Access", "Basic Support"]
+      },
+      {
+        "id": "seliware-30d",
+        "name": "Seliware 30 Day",
+        "duration": "30 Days",
+        "price": 12.97,
+        "badge": "POPULAR",
+        "features": ["Full Seliware Access", "Priority Support"]
+      }
+    ]
+  }
+]
