@@ -539,8 +539,9 @@ button {
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  overflow: hidden;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-image-container {
@@ -573,6 +574,13 @@ button {
 
 .product-content {
   padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-content > .primary-btn {
+  margin-top: auto;
 }
 
 .product-logo {
@@ -616,7 +624,8 @@ button {
   font-size: 14px;
   color: var(--text-muted);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .feature-item::before {
@@ -625,7 +634,8 @@ button {
   height: 6px;
   background-color: var(--blue-primary);
   border-radius: 50%;
-  margin-right: 8px;
+  flex-shrink: 0;
+  margin-top: 6px;
 }
 
 .product-rating {
