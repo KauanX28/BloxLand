@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "question": "How long does delivery take?",
+    "answer": "Delivery is instant! As soon as your payment is confirmed, your license key will be sent directly to the email address you provided during checkout. You'll also see it on the order confirmation screen."
+  },
+  {
+    "id": 2,
+    "question": "Is my payment secure?",
+    "answer": "Yes, absolutely. We use industry-standard encryption and partner with trusted payment gateways to ensure your financial data is 100% secure. We do not store your credit card information."
+  },
+  {
+    "id": 3,
+    "question": "Do these executors work on Mac?",
+    "answer": "Currently, Wave and Seliware are designed specifically for Windows PC (Windows 10/11). They are not natively supported on macOS."
+  },
+  {
+    "id": 4,
+    "question": "What if I have trouble setting it up?",
+    "answer": "Our dedicated support team is available 24/7 on our Discord server. When you purchase, you'll receive a link to join our customer-only channels where we can guide you step-by-step."
+  },
+  {
+    "id": 5,
+    "question": "Can I upgrade my license later?",
+    "answer": "Yes! If you purchase a 7-day or 30-day license and want to extend it, you can simply purchase a new key and apply it when your current one expires. No need to reinstall."
+  }
+]

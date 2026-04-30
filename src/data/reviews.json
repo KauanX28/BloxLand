@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Alex T.",
+    "rating": 5,
+    "date": "2 days ago",
+    "content": "Been using Wave for 3 months now. Instantly delivered and fully undetected. Best executor out there right now.",
+    "product": "Wave 90 Day License"
+  },
+  {
+    "id": 2,
+    "name": "GamerDude99",
+    "rating": 5,
+    "date": "1 week ago",
+    "content": "Got the Mystery Box and actually pulled a 30-day key! Super fast delivery to my email. Support team is also very responsive on Discord.",
+    "product": "Wave Mystery Box"
+  },
+  {
+    "id": 3,
+    "name": "Sarah_Bx",
+    "rating": 4,
+    "date": "2 weeks ago",
+    "content": "Seliware is lightweight and exactly what I needed. Works great on lower end PCs without crashing.",
+    "product": "Seliware 30 Day"
+  },
+  {
+    "id": 4,
+    "name": "NiteHawk",
+    "rating": 5,
+    "date": "1 month ago",
+    "content": "Cheapest reseller on the market period. The automated delivery system works flawlessly. 10/10.",
+    "product": "Wave 7 Day License"
+  }
+]

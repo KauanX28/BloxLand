@@ -1,6 +1,8 @@
 // App State
 const state = {
   products: [],
+  reviews: [],
+  faq: [],
   cart: JSON.parse(localStorage.getItem('bloxkeys_cart')) || [],
   isPromoOpen: true, // Show promo on load
 };
@@ -30,6 +32,8 @@ const els = {
   mobileCartBtn: document.getElementById('mobile-cart-btn'),
   
   productsContainer: document.getElementById('products-container'),
+  reviewsContainer: document.getElementById('reviews-container'),
+  faqContainer: document.getElementById('faq-container'),
   continueShoppingBtn: document.getElementById('continue-shopping-btn')
 };
 
@@ -37,8 +41,14 @@ const els = {
 async function init() {
   setupEventListeners();
   await fetchProducts();
+  await fetchReviews();
+  await fetchFAQ();
+  
   renderProducts();
+  renderReviews();
+  renderFAQ();
   updateCartUI();
+  setupScrollAnimations();
   
   // Show promo if not dismissed previously
   if (localStorage.getItem('bloxkeys_promo_dismissed')) {
@@ -96,8 +106,27 @@ async function fetchProducts() {
     state.products = await res.json();
   } catch (err) {
     console.error('Failed to fetch products', err);
-    // Fallback static data if fetch fails (e.g. running from file://)
     state.products = [];
+  }
+}
+
+async function fetchReviews() {
+  try {
+    const res = await fetch('./src/data/reviews.json');
+    state.reviews = await res.json();
+  } catch (err) {
+    console.error('Failed to fetch reviews', err);
+    state.reviews = [];
+  }
+}
+
+async function fetchFAQ() {
+  try {
+    const res = await fetch('./src/data/faq.json');
+    state.faq = await res.json();
+  } catch (err) {
+    console.error('Failed to fetch FAQ', err);
+    state.faq = [];
   }
 }
 
@@ -266,6 +295,82 @@ function updateCartUI() {
     const totalPrice = state.cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
     els.summaryTotal.textContent = '$' + totalPrice.toFixed(2);
   }
+}
+
+// Render Reviews
+function renderReviews() {
+  if (!state.reviews || !els.reviewsContainer) return;
+  els.reviewsContainer.innerHTML = state.reviews.map(review => {
+    const stars = Array(5).fill(0).map((_, i) => 
+      `<i class="fa-solid fa-star" style="${i < review.rating ? '' : 'opacity: 0.3'}"></i>`
+    ).join('');
+    
+    return `
+      <div class="review-card">
+        <div class="review-header">
+          <div class="reviewer-info">
+            <h4>${review.name}</h4>
+            <div class="review-stars">${stars}</div>
+          </div>
+          <span class="review-date">${review.date}</span>
+        </div>
+        <p class="review-content">"${review.content}"</p>
+        <div class="review-product">
+          <i class="fa-solid fa-box-open"></i> ${review.product}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// Render FAQ
+function renderFAQ() {
+  if (!state.faq || !els.faqContainer) return;
+  els.faqContainer.innerHTML = state.faq.map(item => `
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>${item.question}</span>
+        <i class="fa-solid fa-chevron-down faq-icon"></i>
+      </div>
+      <div class="faq-answer">
+        <p>${item.answer}</p>
+      </div>
+    </div>
+  `).join('');
+
+  // Add click listeners for accordion
+  const faqItems = els.faqContainer.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    question.addEventListener('click', () => {
+      const isActive = item.classList.contains('active');
+      // Close all
+      faqItems.forEach(i => i.classList.remove('active'));
+      // Toggle clicked
+      if (!isActive) item.classList.add('active');
+    });
+  });
+}
+
+// Scroll Animations
+function setupScrollAnimations() {
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const elements = document.querySelectorAll('.fade-in');
+  elements.forEach(el => observer.observe(el));
 }
 
 // Start app
