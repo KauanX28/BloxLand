@@ -135,7 +135,13 @@ function renderProducts() {
   if (!state.products || state.products.length === 0) return;
   
   els.productsContainer.innerHTML = state.products.map(product => {
-    // Generate variants HTML
+    // Calculate minimum price
+    let minPrice = 0;
+    if (product.variants && product.variants.length > 0) {
+      minPrice = Math.min(...product.variants.map(v => v.price));
+    }
+
+    // Generate variants HTML (hidden by default)
     const variantsHtml = product.variants ? product.variants.map(v => `
       <div class="variant-card">
         <div class="variant-header">
@@ -154,20 +160,29 @@ function renderProducts() {
       </div>
     `).join('') : '';
 
+    // Determine badge class
+    let badgeClass = '';
+    if (product.badge === 'BESTSELLER') badgeClass = 'purple';
+    else if (product.badge === 'HOT') badgeClass = 'red';
+    else badgeClass = 'blue';
+
     return `
       <div class="product-card">
-        ${product.badge ? `<div class="badge ${product.badge === 'BACK UP' ? 'back-up' : ''}">${product.badge}</div>` : ''}
-        <div class="product-image-container" style="background-image: url('${product.image}'); background-color: var(--bg-deep); display: flex; align-items: center; justify-content: center; overflow: hidden;">
-          <!-- Fallback if image URL is invalid, using CSS gradient instead for styling -->
-          <div style="background: linear-gradient(45deg, #0f172a, #1e3a8a); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-             <span style="font-size: 64px; opacity: 0.5;">
-                <i class="fa-solid fa-box"></i>
-             </span>
-          </div>
-        </div>
+        ${product.badge ? `<div class="badge ${badgeClass}">${product.badge}</div>` : ''}
+        
         <div class="product-content">
+          <div class="product-logo-container">
+            <img src="${product.image}" alt="${product.name} Logo" style="width: 48px; height: 48px; border-radius: 50%; margin-bottom: 16px; display: block;" onerror="this.src='https://via.placeholder.com/48/0f172a/3b82f6?text=BK'"/>
+          </div>
           <h2 class="product-title">${product.name}</h2>
-          <p class="product-desc">${product.description}</p>
+          <p class="product-desc" style="min-height: 80px;">${product.description}</p>
+          
+          <div class="key-features">
+            <div class="key-features-title">KEY FEATURES:</div>
+            <div class="features-grid">
+              ${product.features.map(f => `<div class="feature-item">${f}</div>`).join('')}
+            </div>
+          </div>
           
           <div class="product-rating">
             <div class="stars">
@@ -181,14 +196,11 @@ function renderProducts() {
             <span class="review-count">(${product.reviews_count} reviews)</span>
           </div>
           
-          <div class="key-features">
-            <div class="key-features-title">KEY FEATURES:</div>
-            <div class="features-grid">
-              ${product.features.map(f => `<div class="feature-item">${f}</div>`).join('')}
-            </div>
-          </div>
-          
-          <div class="variants-container">
+          <button class="primary-btn" onclick="window.toggleVariants('${product.id}')">
+            Starting From - $${minPrice.toFixed(2)}
+          </button>
+
+          <div id="variants-${product.id}" class="variants-container hidden" style="margin-top: 24px;">
             ${variantsHtml}
           </div>
         </div>
@@ -196,6 +208,13 @@ function renderProducts() {
     `;
   }).join('');
 }
+
+window.toggleVariants = function(productId) {
+  const el = document.getElementById(`variants-${productId}`);
+  if (el) {
+    el.classList.toggle('hidden');
+  }
+};
 
 // Cart Logic
 window.addToCart = function(productId, variantId) {
