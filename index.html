@@ -34,22 +34,34 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="navbar-container">
-      <a href="/" class="logo">
-        <span class="logo-text">BK</span>
-      </a>
-      <div class="nav-links desktop-only">
-        <a href="#products">Products</a>
-        <a href="#about">About</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://discord.gg/bloxkeys" target="_blank" class="discord-icon"><i class="fa-brands fa-discord"></i></a>
+      <div class="nav-left desktop-only">
+        <button class="primary-btn login-btn">Customer Login</button>
       </div>
-      <div class="nav-actions">
-        <button id="cart-toggle" class="cart-btn">
-          <i class="fa-solid fa-cart-shopping"></i>
-          <span id="cart-count" class="cart-badge hidden">0</span>
+      <div class="nav-center">
+        <a href="/" class="logo">
+          <span class="logo-text">BK</span>
+        </a>
+        <div class="nav-links desktop-only">
+          <a href="#products">Products</a>
+          <a href="#about">About</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#faq">FAQ</a>
+          <button id="cart-toggle" class="nav-cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cart-count" class="cart-badge hidden">0</span>
+          </button>
+          <a href="https://discord.gg/bloxkeys" target="_blank" class="discord-icon"><i class="fa-brands fa-discord"></i></a>
+        </div>
+      </div>
+      <div class="nav-right desktop-only">
+        <button class="primary-btn affiliate-btn">Be An Affiliate</button>
+      </div>
+      <div class="nav-mobile-actions mobile-only">
+        <button id="mobile-cart-toggle" class="nav-cart-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="mobile-cart-count" class="cart-badge hidden">0</span>
         </button>
-        <button id="mobile-menu-btn" class="mobile-menu-btn mobile-only">
+        <button id="mobile-menu-btn" class="mobile-menu-btn">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -121,8 +133,42 @@
   <!-- Main Content -->
   <main id="main-content">
     <section class="hero-section">
-      <h1>BloxKeys</h1>
-      <p class="subtitle">Premium Roblox Keys</p>
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1>BloxKeys</h1>
+          <h2 class="subtitle">Premium Roblox Keys</h2>
+          <p class="hero-desc">Your Gateway To Premium Roblox Keys! Instantly delivered digital license keys that unlocks premium software features.</p>
+          <div class="hero-buttons">
+            <a href="#products" class="primary-btn hero-btn">Get Started Now <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i></a>
+            <a href="#products" class="primary-btn outline hero-btn outline-btn">All Products</a>
+          </div>
+          <div class="hero-trust">
+            <div class="trust-stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="trust-text">Trusted by 10,000+ customers worldwide</span>
+          </div>
+        </div>
+        <div class="hero-visual desktop-only">
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="terminal-title">Terminal</span>
+            </div>
+            <div class="terminal-body">
+              <p><span class="prompt">$</span> <span class="typing">npm install</span><span class="cursor">_</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Products Listing -->
